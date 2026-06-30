@@ -8,7 +8,9 @@ function DynamicForm() {
     });
 
     const handleChange = (ev) => {
-
+        const {name, value} = ev.target;
+        setFormData((prevData) => ({
+            ...prevData, [name]: value}));
     }
 
     return (

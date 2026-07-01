@@ -4,13 +4,16 @@ function DynamicForm() {
     const [formData, setFormData] = useState({
         name: "",
         email: "",
-        feedback: ""
+        feedback: "",
     });
+    const isAnyFieldEmpty = Object.values(formData).some(value => !value.trim());
 
     const handleChange = (ev) => {
         const {name, value} = ev.target;
         setFormData((prevData) => ({
-            ...prevData, [name]: value}));
+            ...prevData, 
+            [name]: value
+        }));
     }
 
     return (
@@ -22,7 +25,7 @@ function DynamicForm() {
                 <input id="email" type="text" name="email" value={formData.email} onChange={handleChange}></input>
                 <label htmlFor="feedback">Feedback:</label>
                 <textarea id="feedback" name="feedback" value={formData.feedback} onChange={handleChange} maxLength="200"></textarea>
-                <button type="submit">Submit Feedback</button>
+                <button type="submit" disabled={isAnyFieldEmpty}>Submit Feedback</button>
             </form>
 
             <div id="preview-container">

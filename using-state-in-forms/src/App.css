@@ -7,6 +7,12 @@ form, #preview-container {
 
 }
 
+#char-counter {
+  font-size: 0.7em;
+  text-align: right;
+
+}
+
 label {
   font-weight: bold;
   margin-top: 10px;

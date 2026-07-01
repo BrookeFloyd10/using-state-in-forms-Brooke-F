@@ -25,6 +25,7 @@ function DynamicForm() {
                 <input id="email" type="text" name="email" value={formData.email} onChange={handleChange}></input>
                 <label htmlFor="feedback">Feedback:</label>
                 <textarea id="feedback" name="feedback" value={formData.feedback} onChange={handleChange} maxLength="200"></textarea>
+                <p id="char-counter">{formData.feedback.length} /200 Characters</p>
                 <button type="submit" disabled={isAnyFieldEmpty}>Submit Feedback</button>
             </form>
 

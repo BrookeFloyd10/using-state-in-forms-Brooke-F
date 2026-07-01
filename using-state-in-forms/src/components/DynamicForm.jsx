@@ -1,0 +1,43 @@
+import { useState } from "react";
+
+function DynamicForm() {
+    const [formData, setFormData] = useState({
+        name: "",
+        email: "",
+        feedback: "",
+    });
+    const isAnyFieldEmpty = Object.values(formData).some(value => !value.trim());
+
+    const handleChange = (ev) => {
+        const {name, value} = ev.target;
+        setFormData((prevData) => ({
+            ...prevData, 
+            [name]: value
+        }));
+    }
+
+    return (
+        <div>
+            <form>
+                <label htmlFor="name">Name:</label>
+                <input id="name" type="text" name="name" value={formData.name} onChange={handleChange}></input>
+                <label htmlFor="email">Email:</label>
+                <input id="email" type="text" name="email" value={formData.email} onChange={handleChange}></input>
+                <label htmlFor="feedback">Feedback:</label>
+                <textarea id="feedback" name="feedback" value={formData.feedback} onChange={handleChange} maxLength="200"></textarea>
+                <p id="char-counter">{formData.feedback.length} /200 Characters</p>
+                <button type="submit" disabled={isAnyFieldEmpty}>Submit Feedback</button>
+            </form>
+
+            <div id="preview-container">
+                <h2>Form Preview:</h2>
+                <p>Name: {formData.name}</p>
+                <p>Email: {formData.email}</p>
+                <p>Feedback: {formData.feedback}</p>
+
+            </div>
+        </div>
+    );
+}
+
+export default DynamicForm;

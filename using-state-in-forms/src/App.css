@@ -1,0 +1,33 @@
+form, #preview-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+
+}
+
+#char-counter {
+  font-size: 0.7em;
+  text-align: right;
+
+}
+
+label {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+input,
+textarea {
+  margin-top: 5px;
+  padding: 5px;
+}
+
+button {
+  margin: 0 auto;
+  padding: 5px;
+  margin-top: 10px;
+  max-width: 30%;
+
+}
